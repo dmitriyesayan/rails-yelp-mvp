@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.restaurant_id = params[:restaurant_id]
     if @review.save
-      redirect_to restaurant_path(params[:restaurant_id])
+      redirect_to restaurant_reviews_path(params[:restaurant_id])
     else
       @restaurant = Restaurant.find(params[:restaurant_id])
       render "restaurants/show"

@@ -3,12 +3,13 @@
   <ul>
       <% @restaurant.reviews.each do |review| %>
       <li>
-        <p><%= review.created_at.strftime("%c") %></p>
+        <% date = review.created_at.strftime("%c").split %>
+        <p><%= date[1] + " " + date [2] + ", " + date[4] %></p>
         <div>
-          <p><%= review.rating %></p>
-          <p><%= review.content %></p>
+          <p>Score: <%= review.rating %>/5</p>
         </div>
       </li>
+          <p class="content"><%= review.content %></p>
       <% end %>
   </ul>
 </div>
